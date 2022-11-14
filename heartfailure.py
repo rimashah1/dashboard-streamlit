@@ -21,7 +21,7 @@ st.write(data)
 st.subheader('Pertinent Data')
 st.text('Below is the data used for the visualizations')
 age_hbp = data[['age', 'platelets']]
-
+st.write(age_hbp)
 
 st.subheader('Histogram')
 st.text('Below is the code to make an area chart')
@@ -36,6 +36,6 @@ st.area_chart(data=age_hbp, x='age', y='platelets')
 
 
 st.subheader('Line Plot')
-st.text('Below is the data to be visualized in a scatter plot')
+st.text('Below is the data visualized in a line plot')
 age_hbp = data[['age', 'platelets']]
 st.line_chart(data=age_hbp, x='age', y='platelets')

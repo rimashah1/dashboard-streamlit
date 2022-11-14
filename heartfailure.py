@@ -18,18 +18,20 @@ st.title('Heart Failure Data')
 st.subheader('Raw data')
 st.write(data)
 
+st.subheader('Histogram')
 st.text('Below is the code to visualize a histogram')
 
 code = '''
-        hist_values = np.histogram(data['age'], bins = 10)
+        hist_values = np.histogram(data['platelets'], bins = 10)
         st.bar_chart(hist_values)
         '''
 st.code(code, language='python')
 
-hist_values = np.histogram(data['age'], bins = 10)
+hist_values = np.histogram(data['platelets'], bins = 10)
 st.bar_chart(hist_values)
 
+st.subheader('Line Plot')
 st.text('Below is the data to be visualized in a scatter plot')
-age_hbp = data[['age', 'high_blood_pressure']]
+age_hbp = data[['age', 'platelets']]
 
-st.line_chart(data=age_hbp, x='age', y='high_blood_pressure')
+st.line_chart(data=age_hbp, x='age', y='platelets')

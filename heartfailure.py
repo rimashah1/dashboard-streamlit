@@ -18,6 +18,11 @@ st.title('Heart Failure Data')
 st.subheader('Raw data')
 st.write(data)
 
+st.subheader('Pertinent Data')
+st.text('Below is the data used for the visualizations')
+age_hbp = data[['age', 'platelets']]
+
+
 st.subheader('Histogram')
 st.text('Below is the code to make an area chart')
 
@@ -27,7 +32,6 @@ code = '''
         '''
 st.code(code, language='python')
 
-age_hbp = data[['age', 'platelets']]
 st.area_chart(data=age_hbp, x='age', y='platelets')
 
 

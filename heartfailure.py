@@ -28,7 +28,7 @@ code = '''
 st.code(code, language='python')
 
 hist_values = np.histogram(data['platelets'], bins = 10)
-st.bar_chart(hist_values)
+st.bar_chart(hist_values, x='platelets')
 
 st.subheader('Line Plot')
 st.text('Below is the data to be visualized in a scatter plot')

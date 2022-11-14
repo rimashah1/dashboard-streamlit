@@ -19,16 +19,16 @@ st.subheader('Raw data')
 st.write(data)
 
 st.subheader('Histogram')
-st.text('Below is the code to visualize a histogram')
+st.text('Below is the code to make an area chart')
 
 code = '''
-        hist_values = np.histogram(data['platelets'], bins = 10)
-        st.bar_chart(hist_values)
+        age_hbp = data[['age', 'platelets']]
+        st.area_chart(data=age_hbp, x='age', y='platelets')
         '''
 st.code(code, language='python')
 
-hist_values = np.histogram(data, bins = 10)
-st.bar_chart(hist_values, x='age')
+age_hbp = data[['age', 'platelets']]
+st.area_chart(data=age_hbp, x='age', y='platelets')
 
 
 st.subheader('Line Plot')

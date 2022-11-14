@@ -2,22 +2,34 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('NY Discharges 2016')
-
-DATE_COLUMN = 'date/time'
-DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
-         'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
+DATA_URL = ('https://raw.githubusercontent.com/sauravmishra1710/Heart-Failure-Condition-And-Survival-Analysis/master/Data/heart_failure_clinical_records_dataset.csv')
 
 def load_data(nrows):
     data = pd.read_csv(DATA_URL, nrows=nrows)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis='columns', inplace=True)
-    data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
     return data
 
-# Create a text element and let the reader know the data is loading.
-data_load_state = st.text('Loading data...')
 # Load 10,000 rows of data into the dataframe.
 data = load_data(10000)
-# Notify the reader that the data was successfully loaded.
-data_load_state.text('Loading data...done!')
+
+st.title('Heart Failure Data')
+
+st.subheader('Raw data')
+st.write(data)
+
+st.text('Below is the code to visualize a histogram')
+
+code = '''
+        hist_values = np.histogram(data['age'], bins = 10)
+        st.bar_chart(hist_values)
+        '''
+st.code(code, language='python')
+
+hist_values = np.histogram(data['age'], bins = 10)
+st.bar_chart(hist_values)
+
+st.text('Below is the data to be visualized in a scatter plot')
+age_hbp = data[['age', 'high_blood_pressure']]
+
+st.line_chart(data=age_hbp, x='age', y='high_blood_pressure')

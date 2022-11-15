@@ -9,5 +9,8 @@ HHA 507 Assignment 10
 5. nano ~/.bashrc
 6. Add: export PATH="$HOME/.local/bin:$PATH" to the file
 7. Restart with: source ~/.bashrc
-8. git clone respository. cd into directory
+8. git clone respository. cd into directory. git pull origin main to update
 9. streamlit run app.py
+
+# photos folder
+Contains screenshots of the live streamlit dashboard

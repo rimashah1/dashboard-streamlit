@@ -1,6 +1,8 @@
 # dashboard-streamlit
 HHA 507 Assignment 10
 
+Data used for dashboard can be found at https://raw.githubusercontent.com/sauravmishra1710/Heart-Failure-Condition-And-Survival-Analysis/master/Data/heart_failure_clinical_records_dataset.csv
+
 # streamlit on Azure
 1. Connect to VM- ssh username@IP and then enter Password
 2. sudo apt-get update
